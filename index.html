@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curious G</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Charter', 'Georgia', 'Times New Roman', serif;
+            line-height: 1.65;
+            color: #1a1a1a;
+            background: #fff;
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin: 60px 0 20px 0;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 40px 0 12px 0;
+            line-height: 1.3;
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: #2a2a2a;
+        }
+
+        /* Links */
+        a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            text-decoration-color: #ccc;
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            text-decoration-color: #1a1a1a;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 80px;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #4a4a4a;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 32px;
+            margin: 60px 0;
+        }
+
+        .newsletter h3 {
+            margin: 0 0 12px 0;
+            font-size: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 20px;
+            color: #6c757d;
+            font-size: 16px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .newsletter input[type="email"] {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+        }
+
+        .newsletter input[type="email"]:focus {
+            outline: none;
+            border-color: #495057;
+        }
+
+        .newsletter button {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .newsletter button:hover {
+            background: #333;
+        }
+
+        /* Writing Section */
+        .writings {
+            margin: 80px 0;
+        }
+
+        .post-list {
+            list-style: none;
+        }
+
+        .post-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .post-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .post-date {
+            font-size: 14px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .post-title {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .post-title a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .post-title a:hover {
+            text-decoration: underline;
+            text-decoration-color: #ccc;
+        }
+
+        .post-excerpt {
+            color: #666;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* About Section */
+        .about {
+            margin: 80px 0;
+            padding: 40px 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Contact */
+        .contact {
+            margin: 60px 0 40px 0;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 32px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px;
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+                margin: 50px 0 16px 0;
+            }
+
+            .intro {
+                font-size: 18px;
+            }
+
+            .newsletter {
+                padding: 24px;
+                margin: 40px 0;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .post-title {
+                font-size: 22px;
+            }
+        }
+
+        /* Subtle animations */
+        @media (prefers-reduced-motion: no-preference) {
+            a, button {
+                transition: all 0.2s ease;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>I'm Curious G.</h1>
+        <p class="intro">I'm a founder, writer, creator, investor, MTG player, collector, runner, partner, and parent.<br><br>I write about ideas across life, business, and culture.</p>
+        
+        <div class="newsletter">
+            <h3>Join 1,000+ readers of my newsletter:</h3>
+            <p>Get thoughtful essays on life, business, and culture delivered to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe ↗</button>
+            </form>
+        </div>
+    </header>
+
+    <section class="writings">
+        <h2>Writings</h2>
+        <p style="margin-bottom: 40px;">Some popular ones: <a href="#">Designing a Life You Don't Need to Escape</a>, <a href="#">Building in Public</a> and <a href="#">The Art of Focused Work</a>.</p>
+        
+        <ul class="post-list">
+            <li class="post-item">
+                <div class="post-date">June 20, 2025</div>
+                <h3 class="post-title"><a href="#">The Art of Digital Minimalism</a></h3>
+                <p class="post-excerpt">Exploring how reducing digital clutter can lead to a more focused and intentional life. In a world where we're constantly bombarded with notifications, apps, and digital distractions, finding clarity becomes an act of rebellion.</p>
+            </li>
+            
+            <li class="post-item">
+                <div class="post-date">June 15, 2025</div>
+                <h3 class="post-title"><a href="#">Building My First Static Site</a></h3>
+                <p class="post-excerpt">A journey through creating this very website from scratch. Here's what I learned about web development, design principles, and the surprising joy of writing HTML and CSS by hand in 2025.</p>
+            </li>
+            
+            <li class="post-item">
+                <div class="post-date">June 10, 2025</div>
+                <h3 class="post-title"><a href="#">Creativity in the Age of AI</a></h3>
+                <p class="post-excerpt">How artificial intelligence is changing the creative landscape and what it means for human expression. The tools are evolving faster than we can adapt, but the human element remains irreplaceable.</p>
+            </li>
+            
+            <li class="post-item">
+                <div class="post-date">June 5, 2025</div>
+                <h3 class="post-title"><a href="#">Why I Started Writing Online</a></h3>
+                <p class="post-excerpt">The unexpected benefits of sharing your thoughts with strangers on the internet. It's not about going viral or building an audience—it's about clarifying your own thinking and connecting with like-minded people.</p>
+            </li>
+            
+            <li class="post-item">
+                <div class="post-date">May 28, 2025</div>
+                <h3 class="post-title"><a href="#">The Power of Small Experiments</a></h3>
+                <p class="post-excerpt">How running tiny tests in your personal and professional life can lead to outsized results. Most people overestimate what they can do in a day and underestimate what they can accomplish with consistent small steps.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="about">
+        <h2>About</h2>
+        <p>I'm fascinated by the intersection of technology, creativity, and human behavior. Currently building products that help people think more clearly and work more effectively.</p>
+        <p>Before this, I spent years in various startups, learned how to code poorly but enthusiastically, and discovered that the best conversations happen when you're genuinely curious about other people's perspectives.</p>
+        <p>When I'm not writing or building, you can find me reading obscure essays, playing Magic: The Gathering, or going for long runs while listening to podcasts about subjects I know nothing about.</p>
+    </section>
+
+    <section class="contact">
+        <h2>Connect</h2>
+        <div class="contact-links">
+            <a href="mailto:hello@curiousg.me">Email</a>
+            <a href="https://twitter.com/curiousg">Twitter</a>
+            <a href="https://linkedin.com/in/curiousg">LinkedIn</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 curiousg.me</p>
+    </footer>
+
+    <script>
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const button = this.querySelector('button');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Subscribed!';
+            button.style.background = '#28a745';
+            
+            // Reset after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#1a1a1a';
+                this.querySelector('input[type="email"]').value = '';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
